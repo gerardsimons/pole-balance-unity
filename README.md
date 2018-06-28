@@ -9,3 +9,5 @@ The classic pole balance control problem as a Unity environment. The idea is to 
 ## Run
 
 Just double-click the PoleBalance/Assets/Scenes/PoleBalance.unity and run it!
+
+Use the left and right arrow keys to control the pendulum
