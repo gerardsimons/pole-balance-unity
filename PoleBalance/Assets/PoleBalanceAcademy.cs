@@ -1,23 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MLAgents;
 
-public class PoleBalanceAcademy : Academy {
-
-    public override void InitializeAcademy()
-    {
-        
-    }
+public class PoleBalanceAcademy : Academy
+{
 
     public override void AcademyReset()
     {
-        print("PoleBalanceAcademy Step");
-
 
     }
 
     public override void AcademyStep()
     {
-        print("PoleBalanceAcademy Step");
+
     }
+
 }

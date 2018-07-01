@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
-  m_UseRadianceAmbientProbe: 0
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -55,10 +54,11 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 10
-    m_AtlasSize: 512
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -178,6 +178,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &192121221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  keyContinuousPlayerActions: []
+  axisContinuousPlayerActions: []
+  discretePlayerActions:
+  - key: 276
+    value: 1
+  - key: 275
+    value: -1
+  defaultAction: 0
+  brain: {fileID: 904646193}
 --- !u!1 &257248983
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,30 +353,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &334154809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
---- !u!114 &510153603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
 --- !u!1 &681598561
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +430,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 0.05
   m_Drag: 0.1
-  m_AngularDrag: 0.1
+  m_AngularDrag: 0.01
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -465,9 +462,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 14833a06788ee0e4ab0fb562b85cecb5, type: 2}
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -494,6 +490,29 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 681598561}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &843589639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  graphModel: {fileID: 0}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  VectorObservationPlacholderName: vector_observation
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  VisualObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
+  brain: {fileID: 0}
 --- !u!1 &863617720
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,9 +558,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f886179ad71d3416f9af88e90f7043a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -591,7 +609,7 @@ GameObject:
   - component: {fileID: 904646192}
   - component: {fileID: 904646193}
   m_Layer: 0
-  m_Name: Brain
+  m_Name: PoleBalanceBrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -622,21 +640,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    stateSize: 1
-    actionSize: 1
-    memorySize: 0
+    vectorObservationSize: 2
+    numStackedVectorObservations: 1
+    vectorActionSize: 3
     cameraResolutions: []
-    actionDescriptions:
+    vectorActionDescriptions:
     - 
-    actionSpaceType: 0
-    stateSpaceType: 1
-  brainType: 0
+    - 
+    - 
+    vectorActionSpaceType: 0
+    vectorObservationSpaceType: 1
+  brainType: 2
   CoreBrains:
-  - {fileID: 1086978789}
-  - {fileID: 334154809}
-  - {fileID: 510153603}
-  instanceID: 11734
---- !u!114 &1086978789
+  - {fileID: 192121221}
+  - {fileID: 1015035050}
+  - {fileID: 1176148543}
+  - {fileID: 843589639}
+  instanceID: 13280
+--- !u!114 &1015035050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -644,16 +665,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  continuousPlayerActions: []
-  discretePlayerActions:
-  - key: 276
-    value: -1
-  - key: 275
-    value: 1
-  defaultAction: 0
+  broadcast: 1
+  brain: {fileID: 904646193}
+--- !u!114 &1176148543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
   brain: {fileID: 904646193}
 --- !u!1 &1334626088
 GameObject:
@@ -715,9 +742,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 14833a06788ee0e4ab0fb562b85cecb5, type: 2}
+  - {fileID: 2100000, guid: 624b24bbec31f44babfb57ef2dfbc537, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -752,7 +778,7 @@ Rigidbody:
   m_GameObject: {fileID: 1334626088}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 10
+  m_Drag: 4
   m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -767,21 +793,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1334626088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3b63e8ee896ba42b28b2252915f916, type: 3}
+  m_Script: {fileID: 11500000, guid: 250554f1f92ff48a2a56419b980e8499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   brain: {fileID: 904646193}
-  observations: []
-  maxStep: 1000
-  resetOnDone: 1
-  reward: 0
-  done: 0
-  value: 0
-  CummulativeReward: 0
-  stepCounter: 0
-  agentStoredAction: []
-  memory: []
-  id: 0
+  agentParameters:
+    agentCameras: []
+    maxStep: 500
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
   pendulum: {fileID: 681598561}
 --- !u!114 &1334626095
 MonoBehaviour:
@@ -791,10 +812,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1334626088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f2c8f0469eee1e4193fc89b86e7ff46, type: 3}
+  m_Script: {fileID: 11500000, guid: ab19773b9882f49ef872a035c4a9e8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceVector: {x: 25, y: 0, z: 0}
+  forceVector: {x: 20, y: 0, z: 0}
 --- !u!1 &1482851521
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +902,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -934,30 +954,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1500354563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9294b394c0866ad448ac94d8e14de02c, type: 3}
+  m_Script: {fileID: 11500000, guid: 60dc0107c1ed4457992af2cb129030c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxSteps: 0
-  frameToSkip: 0
-  waitTime: 0
   trainingConfiguration:
-    width: 80
-    height: 80
+    width: 1280
+    height: 720
     qualityLevel: 1
     timeScale: 100
-    targetFrameRate: 60
+    targetFrameRate: -1
   inferenceConfiguration:
     width: 1280
     height: 720
     qualityLevel: 5
     timeScale: 1
     targetFrameRate: 60
-  defaultResetParameters: []
-  done: 0
-  episodeCount: 0
-  currentStep: 0
-  isInference: 0
-  windowResize: 0
+  resetParameters:
+    resetParameters: []
 --- !u!4 &1500354565
 Transform:
   m_ObjectHideFlags: 0
@@ -1031,9 +1045,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 14833a06788ee0e4ab0fb562b85cecb5, type: 2}
+  - {fileID: 2100000, guid: 45735b9be79ab49b887c5f09cbb914b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1068,7 +1081,7 @@ Transform:
   m_GameObject: {fileID: 1626357091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.988, y: 0.151, z: -0.028}
-  m_LocalScale: {x: 0.04, y: 0.3, z: 0.5}
+  m_LocalScale: {x: 0.1, y: 0.3, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -1132,9 +1145,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 14833a06788ee0e4ab0fb562b85cecb5, type: 2}
+  - {fileID: 2100000, guid: 45735b9be79ab49b887c5f09cbb914b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1169,7 +1181,7 @@ Transform:
   m_GameObject: {fileID: 1914434424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.98, y: 0.151, z: -0.028000008}
-  m_LocalScale: {x: 0.04, y: 0.3, z: 0.5}
+  m_LocalScale: {x: 0.1, y: 0.3, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5

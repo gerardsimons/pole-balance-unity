@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using MLAgents;
 using UnityEngine.Assertions;
 
-public class PoleBalanceAgent : Agent {
+public class PoleBalanceAgent : Agent
+{
 
     private AxisController axisController;
 
@@ -12,26 +14,16 @@ public class PoleBalanceAgent : Agent {
 
     public GameObject pendulum;
 
-    public override List<float> CollectState()
-    {
-        List<float> state = new List<float>();
+	public override void CollectObservations()
+	{
+        AddVectorObs(pendulum.transform.rotation.eulerAngles.z / 360.0f);
+        AddVectorObs(transform.position.x);
+	}
 
-        return state;
-    }
-
-    private double calculateDifferenceBetweenAngles(double firstAngle, double secondAngle)
-    {
-        double difference = secondAngle - firstAngle;
-        while (difference < -180) difference += 360;
-        while (difference > 180) difference -= 360;
-
-        return difference;
-    }
-
-    public override void AgentStep(float[] act)
-    {
-        print("AGENT STEP #" + stepCounter);
-        int direction = (int)act[0];
+	public override void AgentAction(float[] vectorAction, string textAction)
+	{
+        //print("AGENT STEP #" + stepCounter);
+        int direction = (int)vectorAction[0];
         axisController.Move(direction);
 
         // Determine reward based on rotation of pendulum shaft
@@ -40,9 +32,16 @@ public class PoleBalanceAgent : Agent {
 
         float zDiff = Mathf.Abs(Mathf.DeltaAngle(optimialZRot, zRot));
         Debug.Log("zDiff = " + zDiff);
-        reward = 1 - zDiff  / 180f;
+        float reward = (1 - zDiff / 180f) * 2 - 1;
+        AddReward(reward);
+
+        if(Mathf.Abs(transform.position.x) > 1) {
+            print("OUT OF BOUNDS");
+            Done();
+        }
+
         print("Reward = " + reward);
-    }
+	}
 
     public override void AgentReset()
     {
@@ -50,6 +49,8 @@ public class PoleBalanceAgent : Agent {
 
         pendulum.transform.position = new Vector3(0, 0.3f, 0.27f);
         pendulum.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        transform.position = Vector3.zero;
     }
 
     public override void AgentOnDone()
